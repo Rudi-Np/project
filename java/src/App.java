@@ -6,7 +6,7 @@ public class App {
         TaskRepository tr = new TaskRepository("tasks.json");
         TaskServices ts = new TaskServices(tr);
 
-        Scanner inputx = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
 
         while (true) {
 
@@ -19,8 +19,8 @@ public class App {
             System.out.println("7. Sort by Status");
             System.out.println("0. Exit");
 
-            int choice = inputx.nextInt();
-            inputx.nextLine();
+            int choice = scan.nextInt();
+            scan.nextLine();
 
             if (choice == 0) break;
 
@@ -28,31 +28,31 @@ public class App {
 
                 case 1:
                     System.out.print("ID: ");
-                    int id = inputx.nextInt(); 
-                    inputx.nextLine();
+                    int id = scan.nextInt(); 
+                    scan.nextLine();
 
                     System.out.print("Title: ");
-                    String title = inputx.nextLine();
+                    String title = scan.nextLine();
 
                     System.out.print("Description: ");
-                    String desc = inputx.nextLine();
+                    String desc = scan.nextLine();
 
                     tr.addTask(new Task(id, title, desc, Status.NEW));
                     break;
 
                 case 2:
                     System.out.print("ID: ");
-                    int uid = inputx.nextInt();
-                    inputx.nextLine();
+                    int uid = scan.nextInt();
+                    scan.nextLine();
 
                     Task t = tr.getTaskByid(uid);
 
                     if (t != null) {
                         System.out.print("New Title: ");
-                        t.setTitle(inputx.nextLine());
+                        t.setTitle(scan.nextLine());
 
                         System.out.print("New Description: ");
-                        t.setDescription(inputx.nextLine());
+                        t.setDescription(scan.nextLine());
 
                         tr.updateTask(t);
                     } else {
@@ -62,8 +62,8 @@ public class App {
 
                 case 3:
                     System.out.print("Delete ID: ");
-                    int did = inputx.nextInt();
-                    inputx.nextLine();
+                    int did = scan.nextInt();
+                    scan.nextLine();
                     tr.deleteTask(did);
                     break;
 
@@ -74,14 +74,14 @@ public class App {
 
                 case 5:
                     System.out.print("ID: ");
-                    int mid = inputx.nextInt();
-                    inputx.nextLine();
+                    int mid = scan.nextInt();
+                    scan.nextLine();
                     ts.doneMark(mid);
                     break;
 
                 case 6:
                     System.out.print("Search text: ");
-                    for (Task s : ts.search(inputx.nextLine()))
+                    for (Task s : ts.search(scan.nextLine()))
                         System.out.println(s.getId() + " " + s.getTitle());
                     break;
 
