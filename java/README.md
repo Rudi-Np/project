@@ -24,17 +24,14 @@ It is fully implemented using standard Java classes.
 
 ## Folder Structure
 
-The workspace contains the following folders:
+src/
+└── javaTask/
+    ├── Main.java
+    ├── Task.java
+    ├── TaskRepository.java
+    ├── TaskService.java
+    └── Status.java  (Assumed to be an enum for task status)
 
-* `src/` — contains all Java source files:
-
-  * `Task.java`
-  * `Status.java` (enum)
-  * `TaskRepository.java`
-  * `TaskServices.java`
-  * `App.java` (Main UI)
-
-* `tasks.json` — local JSON file used to store tasks persistently.
 
 > If you use VS Code, the compiled `.class` files will be generated automatically in the default `bin/` or `out/` folder depending on your configuration.
 
@@ -48,8 +45,8 @@ The workspace contains the following folders:
 4. Run the program using the **Run** button or via terminal:
 
 ```bash
-javac App.java
-java App
+javac javaTask/*.java
+java javaTask.App   
 ```
 
 ---
