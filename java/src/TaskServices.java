@@ -19,4 +19,21 @@ public void doneMark(int id){
      }  
          
 }
+public List<Task> search(String text) {
+        String s = text.toLowerCase();
+        return repository.listAll().stream()
+                .filter(t -> t.getTitle().toLowerCase().contains(s)
+                        || t.getDescription().toLowerCase().contains(s))
+                .collect(Collectors.toList());
+    }
+     
+
+
+   public List<Task> sortByStatus() {
+    return repository.listAll().stream()
+            .sorted((task1, task2) -> {
+                return task1.getStatus().ordinal() - task2.getStatus().ordinal();
+            })
+            .collect(Collectors.toList());
+}
 }
