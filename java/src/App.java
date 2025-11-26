@@ -2,8 +2,7 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("0
-        ");
+        System.out.println("Task management");
         TaskRepository tr = new TaskRepository("tasks.json");
         TaskServices ts = new TaskServices(tr);
 
